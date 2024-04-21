@@ -16,6 +16,7 @@ func step(player: Player, delta: float):
 	player.handle_gravity(delta)
 	player.handle_jump()
 	player.handle_acceleration(delta)
+	player.handle_deceleration(delta)
 
 	if player.is_grounded():
 		if player.input_direction.y < 0:
