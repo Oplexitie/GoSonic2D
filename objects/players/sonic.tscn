@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scripts/player/states/rolling_player_state.gd" type="Script" id=1]
 [ext_resource path="res://scripts/player/states/air_player_state.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://objects/shields/blue_shield.tscn" type="PackedScene" id=18]
 [ext_resource path="res://objects/shields/thunder_shield.tscn" type="PackedScene" id=19]
 [ext_resource path="res://objects/shields/flame_shield.tscn" type="PackedScene" id=20]
+[ext_resource path="res://objects/shields/bubble_shield.tscn" type="PackedScene" id=21]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -274,6 +275,8 @@ script = ExtResource( 17 )
 [node name="ThunderShield" parent="Shields" instance=ExtResource( 19 )]
 
 [node name="FlameShield" parent="Shields" instance=ExtResource( 20 )]
+
+[node name="BubbleShield" parent="Shields" instance=ExtResource( 21 )]
 
 [node name="Audios" type="Node2D" parent="."]
 script = ExtResource( 12 )

@@ -43,3 +43,6 @@ func on_deactivate():
 
 func on_action():
 	pass
+
+func cancel_action():
+	pass

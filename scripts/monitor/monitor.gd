@@ -70,6 +70,7 @@ func _on_SolidObject_player_ceiling_collision(player: Player):
 func _on_SolidObject_player_ground_collision(player: Player):
 	if player.is_rolling and player.velocity.y > 0:
 		player.velocity.y = -player.velocity.y
+		player.shields.cancel_current()
 		destroy()
 
 func _on_SolidObject_player_left_wall_collision(player: Player):

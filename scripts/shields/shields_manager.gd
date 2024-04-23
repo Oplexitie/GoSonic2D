@@ -7,11 +7,12 @@ onready var shields = {
 	"InstaShield": $InstaShield,
 	"BlueShield": $BlueShield,
 	"ThunderShield": $ThunderShield,
-	"FlameShield": $FlameShield
+	"FlameShield": $FlameShield,
+	"BubbleShield": $BubbleShield
 }
 
 onready var shield_user = get_parent()
-onready var default_shield = shields.FlameShield
+onready var default_shield = shields.BubbleShield
 
 var current_shield: Shield
 
@@ -31,3 +32,7 @@ func change_to_default():
 func use_current():
 	if current_shield:
 		current_shield.action()
+
+func cancel_current():
+	if current_shield == shields.BubbleShield:
+		current_shield.cancel_action()

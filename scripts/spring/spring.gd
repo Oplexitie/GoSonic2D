@@ -42,6 +42,7 @@ func _on_SolidObject_player_left_wall_collision(player: Player):
 func _on_SolidObject_player_ground_collision(player: Player):
 	if type == 0 and player.velocity.y >= 0:
 		player.state_machine.change_state("Spring")
+		player.shields.cancel_current()
 		apply_vertical_force(player, 1)
 
 func _on_SolidObject_player_ceiling_collision(player: Player):
