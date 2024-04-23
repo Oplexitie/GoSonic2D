@@ -2,7 +2,7 @@
 
 [ext_resource path="res://sprites/shields/insta_shield.png" type="Texture" id=1]
 [ext_resource path="res://scripts/shields/insta_shield.gd" type="Script" id=2]
-[ext_resource path="res://objects/audios/insta_shield_audio.tscn" type="PackedScene" id=3]
+[ext_resource path="res://audios/effects/insta_shield.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "default"
@@ -25,22 +25,24 @@ extents = Vector2( 24, 24 )
 
 [node name="InstaShield" type="Node2D"]
 script = ExtResource( 2 )
-action_audio_path = NodePath("InstaShieldAudio")
+action_audio_path = NodePath("InstaShield")
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="ShieldSprite" type="Sprite" parent="."]
 visible = false
 z_index = 1
 texture = ExtResource( 1 )
 hframes = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShieldSprite"]
 playback_speed = 4.0
 anims/default = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource( 2 )
 disabled = true
 
-[node name="InstaShieldAudio" parent="." instance=ExtResource( 3 )]
+[node name="InstaShield" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

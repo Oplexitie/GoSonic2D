@@ -12,9 +12,9 @@
 [ext_resource path="res://scripts/player/player_skin.gd" type="Script" id=10]
 [ext_resource path="res://scripts/player/states/spring_player_state.gd" type="Script" id=11]
 [ext_resource path="res://scripts/player/player_audio.gd" type="Script" id=12]
-[ext_resource path="res://objects/audios/SpinAudio.tscn" type="PackedScene" id=13]
-[ext_resource path="res://objects/audios/BrakeAudio.tscn" type="PackedScene" id=14]
-[ext_resource path="res://objects/audios/JumpAudio.tscn" type="PackedScene" id=15]
+[ext_resource path="res://audios/effects/spin.wav" type="AudioStream" id=13]
+[ext_resource path="res://audios/effects/brake.wav" type="AudioStream" id=14]
+[ext_resource path="res://audios/effects/jump.wav" type="AudioStream" id=15]
 [ext_resource path="res://objects/shields/insta_shield.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scripts/shields/shields_manager.gd" type="Script" id=17]
 [ext_resource path="res://objects/shields/blue_shield.tscn" type="PackedScene" id=18]
@@ -281,11 +281,14 @@ script = ExtResource( 17 )
 [node name="Audios" type="Node2D" parent="."]
 script = ExtResource( 12 )
 
-[node name="JumpAudio" parent="Audios" instance=ExtResource( 15 )]
+[node name="JumpAudio" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource( 15 )
 
-[node name="BrakeAudio" parent="Audios" instance=ExtResource( 14 )]
+[node name="BrakeAudio" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource( 14 )
 
-[node name="SpinAudio" parent="Audios" instance=ExtResource( 13 )]
+[node name="SpinAudio" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource( 13 )
 
 [node name="Skin" type="Sprite" parent="."]
 texture = ExtResource( 6 )

@@ -3,9 +3,9 @@
 [ext_resource path="res://objects/particles/Explosion0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/monitor/monitor.png" type="Texture" id=2]
 [ext_resource path="res://scripts/nodes/solid_object.gd" type="Script" id=3]
-[ext_resource path="res://objects/audios/RingAudio.tscn" type="PackedScene" id=4]
+[ext_resource path="res://audios/effects/explosion.wav" type="AudioStream" id=4]
 [ext_resource path="res://scripts/monitor/icon.gd" type="Script" id=5]
-[ext_resource path="res://objects/audios/ExplosionAudio.tscn" type="PackedScene" id=6]
+[ext_resource path="res://audios/effects/ring.wav" type="AudioStream" id=6]
 [ext_resource path="res://scripts/nodes/score_controller.gd" type="Script" id=7]
 [ext_resource path="res://sprites/monitor/icons.png" type="Texture" id=9]
 [ext_resource path="res://scripts/monitor/monitor.gd" type="Script" id=10]
@@ -110,9 +110,11 @@ rings = 10
 
 [node name="Audios" type="Node" parent="."]
 
-[node name="ItemAudio" parent="Audios" instance=ExtResource( 4 )]
+[node name="ItemAudio" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource( 6 )
 
-[node name="ExplosionAudio" parent="Audios" instance=ExtResource( 6 )]
+[node name="ExplosionAudio" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource( 4 )
 
 [connection signal="player_ceiling_collision" from="SolidObject" to="." method="_on_SolidObject_player_ceiling_collision"]
 [connection signal="player_ground_collision" from="SolidObject" to="." method="_on_SolidObject_player_ground_collision"]
