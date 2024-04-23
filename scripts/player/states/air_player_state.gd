@@ -14,7 +14,6 @@ func enter(player: Player):
 
 func step(player: Player, delta: float):
 	player.handle_gravity(delta)
-	player.handle_jump()
 	player.handle_acceleration(delta)
 	player.handle_deceleration(delta)
 
@@ -26,6 +25,8 @@ func step(player: Player, delta: float):
 	elif Input.is_action_just_pressed("player_a") and can_use_shield:
 		can_use_shield = false
 		player.shields.use_current()
+	
+	player.handle_jump()
 
 func animate(player: Player, _delta: float):
 	player.skin.handle_flip(player.input_direction.x)

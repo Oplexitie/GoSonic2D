@@ -16,15 +16,14 @@ static func ground_to_global_velocity(velocity, normal) -> Vector2:
 
 static func global_to_ground_velocity(velocity, normal) -> Vector2:
 	var x_speed = velocity.x
-	var y_speed = velocity.x * normal.x - velocity.y * normal.y
 	var angle = abs(get_angle_from(normal))
-
-	if angle > SHALLOW_ANGLE and abs(x_speed) < y_speed:
+	
+	if angle > SHALLOW_ANGLE and abs(x_speed) < velocity.y:
 		var direction = sign(normal.x)
-
+	
 		if angle < HALF_STEEP_ANGLE:
 			x_speed = velocity.y * 0.5 * direction
 		else:
 			x_speed = velocity.y * direction
-
+	
 	return Vector2(x_speed, 0)
