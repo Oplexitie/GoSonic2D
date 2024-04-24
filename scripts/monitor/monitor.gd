@@ -1,23 +1,13 @@
 tool
 extends Node2D
-
 class_name Monitor
 
 const BUMP_FORCE = 150
 const GRAVITY = 700
 const GROUND_DISTANCE = 16
 
-export(int, "Ring",
-	"Combine Ring",
-	"Speed Shoes",
-	"Invicibility Shield",
-	"Blue Shield",
-	"Thunder Shield",
-	"Flame Shield",
-	"Bubble Shield",
-	"Super Sonic",
-	"Egg Monitor",
-	"1Up") var monitor_type setget ,_ready
+export(Resource) var monitor_ressoure setget ,_ready
+
 export(int, LAYERS_2D_PHYSICS) var ground_layer = 1
 
 onready var tree
@@ -26,7 +16,8 @@ onready var score_manager
 
 onready var icon = $Icon
 onready var explosion = $Explosion0
-onready var monitor_audio = {"Jingle": $JingleAudio, "Explosion": $ExplosionAudio}
+onready var jingle_player = $JingleAudio
+onready var explosion_audio = $ExplosionAudio
 
 onready var solid_object = $SolidObject
 onready var animation_tree = $Sprite/AnimationTree
@@ -35,17 +26,14 @@ var velocity: Vector2
 var allow_movement: bool
 
 func _ready():
-	icon.frame = monitor_type
+	if monitor_ressoure: icon.frame = monitor_ressoure.monitor_type
 	if Engine.editor_hint:
-		return monitor_type
+		return monitor_ressoure
 	else:
 		tree = get_tree()
 		world = get_world_2d()
 		score_manager = get_node("/root/ScoreManager") as ScoreManager
-		
-	match monitor_type:
-		0: 	monitor_audio["Jingle"].stream = preload("res://audios/effects/ring.wav")
-		10: monitor_audio["Jingle"].stream = preload("res://audios/effects/yes.wav")
+	jingle_player.stream = monitor_ressoure.jingle_audio
 
 func _physics_process(delta):
 	if allow_movement:
@@ -69,21 +57,17 @@ func handle_collision():
 func destroy():
 	explosion.play()
 	icon.set_movement(true)
-	monitor_audio["Explosion"].play()
+	explosion_audio.play()
 	solid_object.set_enabled(false)
 	animation_tree.set("parameters/state/current", 1)
 
 func handle_item(player : Player):
 	destroy()
 	yield(tree.create_timer(0.5), "timeout")
-	monitor_audio["Jingle"].play()
-	match monitor_type:
-		1: score_manager.add_ring(10)
-		4: player.shields.change("BlueShield")
-		5: player.shields.change("ThunderShield")
-		6: player.shields.change("FlameShield")
-		7: player.shields.change("BubbleShield")
-		10: score_manager.add_life(1)
+	jingle_player.play()
+	score_manager.add_ring(monitor_ressoure.rings)
+	score_manager.add_life(monitor_ressoure.lifes)
+	if(monitor_ressoure.shield_type): player.shields.change(monitor_ressoure.shield_type)
 
 func bump_up():
 	allow_movement = true

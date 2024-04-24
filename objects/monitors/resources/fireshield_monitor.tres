@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://scripts/monitor/monitor_ressource.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+monitor_type = 6
+score = 0
+rings = 0
+lifes = 0

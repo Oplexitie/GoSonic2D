@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/monitor/monitor.gd"
 }, {
+"base": "Resource",
+"class": "Monitor_Ressource",
+"language": "GDScript",
+"path": "res://scripts/monitor/monitor_ressource.gd"
+}, {
 "base": "StaticBody2D",
 "class": "MovingPlatform",
 "language": "GDScript",
@@ -158,6 +163,7 @@ _global_script_class_icons={
 "GoUtils": "",
 "HUD": "",
 "Monitor": "",
+"Monitor_Ressource": "",
 "MovingPlatform": "",
 "Particle": "",
 "Player": "",
