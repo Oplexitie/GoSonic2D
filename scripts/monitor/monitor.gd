@@ -23,7 +23,6 @@ onready var explosion_audio = $Audios/ExplosionAudio
 
 var velocity: Vector2
 
-var destroyed: bool
 var allow_movement: bool
 
 func _physics_process(delta):
@@ -46,13 +45,12 @@ func handle_collision():
 		position = position.round()
 
 func destroy():
-	if not destroyed:
-		explosion.play()
-		icon.set_movement(true)
-		explosion_audio.play()
-		solid_object.set_enabled(false)
-		animation_tree.set("parameters/state/current", 1)
-		handle_item()
+	explosion.play()
+	icon.set_movement(true)
+	explosion_audio.play()
+	solid_object.set_enabled(false)
+	animation_tree.set("parameters/state/current", 1)
+	handle_item()
 
 func handle_item():
 	yield(tree.create_timer(0.5), "timeout")

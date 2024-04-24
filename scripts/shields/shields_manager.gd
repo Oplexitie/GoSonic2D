@@ -12,18 +12,18 @@ onready var shields = {
 }
 
 onready var shield_user = get_parent()
-onready var default_shield = shields.BubbleShield
+onready var default_shield = "BubbleShield"
 
 var current_shield: Shield
 
 func _ready():
 	change(default_shield)
 
-func change(to: Shield):
+func change(to: String):
 	if current_shield:
 		current_shield.deactivate()
 	
-	current_shield = to
+	current_shield = shields[to]
 	current_shield.activate(shield_user)
 
 func change_to_default():

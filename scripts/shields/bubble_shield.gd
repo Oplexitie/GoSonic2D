@@ -23,8 +23,8 @@ func on_activate():
 func on_deactivate():
 	shield_sprite.visible = false
 	effect_sprite.visible = false
-	shield_animation_player.animation_player.stop()
-	effect_animation_player.animation_player.stop()
+	shield_animation_player.stop()
+	effect_animation_player.stop()
 
 func on_action():
 	shield_user.velocity.x /= 2
@@ -35,7 +35,7 @@ func on_action():
 	effect_sprite.visible = false
 
 func on_user_ground_enter():
-	if is_bouncing == true:
+	if is_bouncing:
 		shield_animation_player.play("bounce_back")
 		is_bouncing = false
 		action_audio.play()
@@ -51,8 +51,9 @@ func on_user_ground_enter():
 			shield_user.velocity.y -= min_bounce_force * cos(ground_angle)
 
 func cancel_action():
-	shield_animation_player.play("bounce_back")
-	is_bouncing = false
+	if is_bouncing:
+		shield_animation_player.play("bounce_back")
+		is_bouncing = false
 
 func _on_bubble_bounce_finished(anim_name):
 	if anim_name == "bounce_back":
