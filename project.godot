@@ -114,11 +114,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/player/states/rolling_player_state.gd"
 }, {
-"base": "Node",
-"class": "ScoreController",
-"language": "GDScript",
-"path": "res://scripts/nodes/score_controller.gd"
-}, {
 "base": "Node2D",
 "class": "Shield",
 "language": "GDScript",
@@ -176,7 +171,6 @@ _global_script_class_icons={
 "PlayerStats": "",
 "RegularPlayerState": "",
 "RollingPlayerState": "",
-"ScoreController": "",
 "Shield": "",
 "ShieldsManager": "",
 "SolidObject": "",

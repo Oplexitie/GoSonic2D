@@ -20,6 +20,7 @@ tracks/0/keys = {
 }
 
 [node name="Explosion0" type="Sprite"]
+visible = false
 position = Vector2( 0, -4 )
 texture = ExtResource( 2 )
 hframes = 5

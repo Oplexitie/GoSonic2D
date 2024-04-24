@@ -18,6 +18,7 @@ signal player_ground_collision(player)
 
 func set_enabled(value: bool):
 	shape.disabled = not value
+	queue_free()
 
 func is_enabled() -> bool:
 	return not shape.disabled

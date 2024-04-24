@@ -26,6 +26,7 @@ func handle_visibility(delta: float):
 	else:
 		visible_timer = 0
 		visible = false
+		queue_free()
 
 func set_movement(value: bool):
 	movement = value
