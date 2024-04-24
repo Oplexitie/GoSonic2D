@@ -71,10 +71,6 @@ func _on_SolidObject_player_ground_collision(player: Player):
 		player.shields.cancel_current()
 		destroy()
 
-func _on_SolidObject_player_left_wall_collision(player: Player):
-	if player.is_grounded() and player.is_rolling:
-		destroy()
-
-func _on_SolidObject_player_right_wall_collision(player: Player):
+func _on_SolidObject_player_wall_collision(player: Player):
 	if player.is_grounded() and player.is_rolling:
 		destroy()

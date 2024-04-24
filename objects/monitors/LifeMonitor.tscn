@@ -119,5 +119,5 @@ stream = ExtResource( 4 )
 
 [connection signal="player_ceiling_collision" from="SolidObject" to="." method="_on_SolidObject_player_ceiling_collision"]
 [connection signal="player_ground_collision" from="SolidObject" to="." method="_on_SolidObject_player_ground_collision"]
-[connection signal="player_left_wall_collision" from="SolidObject" to="." method="_on_SolidObject_player_left_wall_collision"]
-[connection signal="player_right_wall_collision" from="SolidObject" to="." method="_on_SolidObject_player_right_wall_collision"]
+[connection signal="player_left_wall_collision" from="SolidObject" to="." method="_on_SolidObject_player_wall_collision"]
+[connection signal="player_right_wall_collision" from="SolidObject" to="." method="_on_SolidObject_player_wall_collision"]

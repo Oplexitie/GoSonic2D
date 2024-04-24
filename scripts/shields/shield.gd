@@ -8,11 +8,15 @@ export(bool) var ring_protection = true
 export(NodePath) var activation_audio_path
 export(NodePath) var action_audio_path
 
-onready var activate_audio = get_node(activation_audio_path)
-onready var action_audio = get_node(action_audio_path)
+var activate_audio : AudioStreamPlayer
+var action_audio : AudioStreamPlayer
 
 var active: bool
 var shield_user
+
+func _ready():
+	if activation_audio_path: activate_audio = get_node(activation_audio_path)
+	if action_audio_path: action_audio = get_node(action_audio_path)
 
 func activate(player):
 	if not active:
