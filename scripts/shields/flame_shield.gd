@@ -10,10 +10,11 @@ onready var shield_animation_player = $ShieldSprite/AnimationPlayer
 onready var attacking_animation_player = $AttackingSprite/AnimationPlayer
 
 func on_activate():
-	set_attacking(false)
 	shield_user.connect("ground_enter", self, "on_user_ground_enter")
+	set_attacking(false)
 
 func on_deactivate():
+	shield_user.disconnect("ground_enter", self, "on_user_ground_enter")
 	shield_sprite.visible = false
 	attacking_sprite.visible = false
 	shield_animation_player.stop()

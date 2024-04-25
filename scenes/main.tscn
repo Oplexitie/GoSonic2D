@@ -16,7 +16,7 @@
 [ext_resource path="res://objects/activators/LowerTileActivatorBig.tscn" type="PackedScene" id=14]
 [ext_resource path="res://objects/activators/UpperTileActivatorSmall.tscn" type="PackedScene" id=15]
 [ext_resource path="res://objects/springs/yellow_spring_left.tscn" type="PackedScene" id=16]
-[ext_resource path="res://objects/monitors/resources/life_monitor.tres" type="Resource" id=17]
+[ext_resource path="res://objects/monitors/resources/bubbleshield_monitor.tres" type="Resource" id=17]
 [ext_resource path="res://objects/monitors/resources/ring_monitor.tres" type="Resource" id=18]
 
 [sub_resource type="TileSet" id=1]
@@ -629,7 +629,7 @@ tile_data = PoolIntArray( 1638514, 4, 0, 1769595, 4, 0, 1966160, 4, 0, 1966186, 
 position = Vector2( 864, 624 )
 monitor_ressoure = ExtResource( 18 )
 
-[node name="Monitor4" parent="." instance=ExtResource( 11 )]
+[node name="Monitor2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 992, 624 )
 monitor_ressoure = ExtResource( 17 )
 

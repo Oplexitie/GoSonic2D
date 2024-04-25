@@ -13,14 +13,15 @@ onready var effect_animation_player = $EffectSprite/AnimationPlayer
 var is_bouncing = false
 
 func on_activate():
-	is_bouncing = false
 	shield_user.connect("ground_enter", self, "on_user_ground_enter")
+	is_bouncing = false
 	shield_sprite.visible = true
 	effect_sprite.visible = true
 	shield_animation_player.play("default")
 	effect_animation_player.play("default")
 
 func on_deactivate():
+	shield_user.disconnect("ground_enter", self, "on_user_ground_enter")
 	shield_sprite.visible = false
 	effect_sprite.visible = false
 	shield_animation_player.stop()
