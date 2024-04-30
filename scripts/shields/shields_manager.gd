@@ -12,7 +12,7 @@ onready var shields = {
 }
 
 onready var shield_user = get_parent()
-onready var default_shield = "FlameShield"
+onready var default_shield = "InstaShield"
 
 var current_shield: Shield
 

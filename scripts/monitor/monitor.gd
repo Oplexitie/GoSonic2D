@@ -1,4 +1,3 @@
-tool
 extends Node2D
 class_name Monitor
 
@@ -6,13 +5,12 @@ const BUMP_FORCE = 150
 const GRAVITY = 700
 const GROUND_DISTANCE = 16
 
-export(Resource) var monitor_ressoure setget ,_ready
-
+export(Resource) var monitor_ressoure
 export(int, LAYERS_2D_PHYSICS) var ground_layer = 1
 
-onready var tree
-onready var world
-onready var score_manager
+onready var tree = get_tree()
+onready var world = get_world_2d()
+onready var score_manager = get_node("/root/ScoreManager") as ScoreManager
 
 onready var icon = $Icon
 onready var explosion = $Explosion0
@@ -26,13 +24,7 @@ var velocity: Vector2
 var allow_movement: bool
 
 func _ready():
-	if monitor_ressoure: icon.frame = monitor_ressoure.monitor_type
-	if Engine.editor_hint:
-		return monitor_ressoure
-	else:
-		tree = get_tree()
-		world = get_world_2d()
-		score_manager = get_node("/root/ScoreManager") as ScoreManager
+	icon.frame = monitor_ressoure.monitor_icon
 	jingle_player.stream = monitor_ressoure.jingle_audio
 
 func _physics_process(delta):
@@ -65,6 +57,7 @@ func handle_item(player : Player):
 	destroy()
 	yield(tree.create_timer(0.5), "timeout")
 	jingle_player.play()
+	score_manager.add_score(monitor_ressoure.score)
 	score_manager.add_ring(monitor_ressoure.rings)
 	score_manager.add_life(monitor_ressoure.lifes)
 	if(monitor_ressoure.shield_type): player.shields.change(monitor_ressoure.shield_type)

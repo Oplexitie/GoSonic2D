@@ -78,13 +78,12 @@ position = Vector2( 0, -4 )
 texture = ExtResource( 9 )
 hframes = 5
 vframes = 3
-frame = 8
+frame = 9
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 4
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/destroyed = SubResource( 1 )

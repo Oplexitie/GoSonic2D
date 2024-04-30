@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource( 2 )
-monitor_type = 0
+monitor_icon = 0
+shield_type = ""
 jingle_audio = ExtResource( 1 )
 score = 0
-rings = 1
+rings = 10
 lifes = 0
