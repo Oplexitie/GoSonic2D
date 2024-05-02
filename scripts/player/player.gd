@@ -80,9 +80,7 @@ func initialize_skin():
 	get_tree().root.call_deferred("add_child", skin)
 
 func get_position():
-	var y_offset = transform.y * current_bounds.offset.y
-	var x_offset = transform.x * current_bounds.offset.x
-	return global_position + y_offset + x_offset
+	return global_position + current_bounds.offset
 
 func set_bounds(index: int):
 	if index >= 0 and index < bounds.size():
@@ -237,12 +235,8 @@ func rotate_to(angle: float):
 	rotation_degrees = closest_angle
 
 func handle_input():
-	var right = Input.is_action_pressed("player_right")
-	var left = Input.is_action_pressed("player_left")
-	var up = Input.is_action_pressed("player_up")
-	var down = Input.is_action_pressed("player_down")
-	var horizontal = 1 if right else (-1 if left else 0)
-	var vertical = 1 if up else (-1 if down else 0)
+	var horizontal = Input.get_axis("player_left", "player_right")
+	var vertical = Input.get_axis("player_down", "player_up")
 	horizontal = 0 if is_control_locked else horizontal
 	input_direction = Vector2(horizontal, vertical)
 	input_dot_velocity = input_direction.dot(velocity)
@@ -344,8 +338,8 @@ func exit_ground():
 		rotate_to(0)
 
 #func _draw():
-#	var ground_ray_size = current_bounds.height_radius + current_bounds.ground_extension if is_grounded else current_bounds.height_radius
-#	var horizontal_origin = Vector2.ZERO - Vector2.UP * current_bounds.push_height_offset if is_grounded and absolute_ground_angle < 1 else Vector2.ZERO
+#	var ground_ray_size = current_bounds.height_radius + current_bounds.ground_extension if __is_grounded else current_bounds.height_radius
+#	var horizontal_origin = Vector2.ZERO - Vector2.UP * current_bounds.push_height_offset if __is_grounded and absolute_ground_angle < 1 else Vector2.ZERO
 #
 #	draw_line(horizontal_origin, horizontal_origin + Vector2.RIGHT * (current_bounds.width_radius + current_bounds.push_radius), Color.crimson)
 #	draw_line(horizontal_origin, horizontal_origin - Vector2.RIGHT * (current_bounds.width_radius + current_bounds.push_radius), Color.hotpink)

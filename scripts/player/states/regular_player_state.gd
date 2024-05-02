@@ -16,8 +16,9 @@ func step(player: Player, delta: float):
 	if player.is_grounded():
 		if player.input_dot_velocity < 0 and abs(player.velocity.x) >= player.current_stats.min_speed_to_brake:
 			player.state_machine.change_state("Braking")
-		if player.input_direction.y < 0 and abs(player.velocity.x) > player.current_stats.min_speed_to_roll:
-			player.state_machine.change_state("Rolling")
+		if !abs(player.input_direction.x):
+			if player.input_direction.y < 0 and abs(player.velocity.x) > player.current_stats.min_speed_to_roll:
+				player.state_machine.change_state("Rolling")
 	else:
 		player.state_machine.change_state("Air")
 
