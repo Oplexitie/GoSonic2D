@@ -48,7 +48,7 @@ func handle_vertical_borders(delta: float):
 	
 	if player.is_grounded():
 		var offset = target - position.y
-		var is_at_high_velocity = player.velocity.x <= high_velocity_xsp
+		var is_at_high_velocity = abs(player.velocity.x) >= high_velocity_xsp
 		var speed = low_velocity_speed if is_at_high_velocity else high_velocity_speed
 		position.y += clamp(offset, -speed * delta, speed * delta)
 	else:
