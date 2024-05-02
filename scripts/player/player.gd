@@ -268,7 +268,7 @@ func handle_control_lock(delta: float):
 
 func handle_fall():
 	if __is_grounded and absolute_ground_angle > current_stats.slide_angle and abs(velocity.x) <= current_stats.min_speed_to_fall:
-		lock_controls(current_stats.control_lock_duration)
+		lock_controls(current_stats.CONTROL_LOCK_DURATION)
 
 		if absolute_ground_angle > current_stats.fall_angle:
 			exit_ground()

@@ -2,7 +2,7 @@ extends Resource
 
 class_name PlayerStats
 
-const control_lock_duration = 0.5
+const CONTROL_LOCK_DURATION = 0.5
 
 export(float) var acceleration = 168.75
 export(float) var deceleration = 1800
