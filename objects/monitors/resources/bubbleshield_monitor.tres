@@ -5,7 +5,6 @@
 
 [resource]
 script = ExtResource( 1 )
-monitor_icon = 7
 shield_type = "BubbleShield"
 jingle_audio = ExtResource( 2 )
 score = 0

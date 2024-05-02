@@ -5,7 +5,6 @@
 
 [resource]
 script = ExtResource( 1 )
-monitor_icon = 4
 shield_type = "BlueShield"
 jingle_audio = ExtResource( 2 )
 score = 0
