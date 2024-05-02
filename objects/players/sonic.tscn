@@ -62,7 +62,6 @@ min_jump_height = 240.0
 slide_angle = 45.0
 fall_angle = 80.0
 min_speed_to_fall = 150.0
-control_lock_duration = 0.5
 
 [sub_resource type="Animation" id=4]
 resource_name = "corkscrew"

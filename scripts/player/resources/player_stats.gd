@@ -2,6 +2,8 @@ extends Resource
 
 class_name PlayerStats
 
+const control_lock_duration = 0.5
+
 export(float) var acceleration = 168.75
 export(float) var deceleration = 1800
 export(float) var friction = 168.75
@@ -25,4 +27,3 @@ export(float) var min_jump_height = 240
 export(float) var slide_angle = 45
 export(float) var fall_angle = 80
 export(float) var min_speed_to_fall = 150
-export(float) var control_lock_duration = 0.5

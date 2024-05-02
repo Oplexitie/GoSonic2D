@@ -247,11 +247,11 @@ func handle_input():
 	input_direction = Vector2(horizontal, vertical)
 	input_dot_velocity = input_direction.dot(velocity)
 
-func lock_controls(lock_time: float):
+func lock_controls(lock_duration: float):
 	if not is_control_locked:
 		input_direction.x = 0
 		is_control_locked = true
-		control_lock_timer = lock_time
+		control_lock_timer = lock_duration
 
 func unlock_controls():
 	if is_control_locked:
