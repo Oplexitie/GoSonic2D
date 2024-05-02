@@ -24,7 +24,6 @@ var velocity: Vector2
 var allow_movement: bool
 
 func _ready():
-	icon.frame = monitor_ressoure.monitor_icon
 	jingle_player.stream = monitor_ressoure.jingle_audio
 
 func _physics_process(delta):
