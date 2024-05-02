@@ -247,11 +247,11 @@ func handle_input():
 	input_direction = Vector2(horizontal, vertical)
 	input_dot_velocity = input_direction.dot(velocity)
 
-func lock_controls():
+func lock_controls(lock_time: float):
 	if not is_control_locked:
 		input_direction.x = 0
 		is_control_locked = true
-		control_lock_timer = current_stats.control_lock_duration
+		control_lock_timer = lock_time
 
 func unlock_controls():
 	if is_control_locked:
@@ -268,7 +268,7 @@ func handle_control_lock(delta: float):
 
 func handle_fall():
 	if __is_grounded and absolute_ground_angle > current_stats.slide_angle and abs(velocity.x) <= current_stats.min_speed_to_fall:
-		lock_controls()
+		lock_controls(current_stats.control_lock_duration)
 
 		if absolute_ground_angle > current_stats.fall_angle:
 			exit_ground()

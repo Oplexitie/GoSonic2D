@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Spring
 
+const CONTROL_LOCK_DURATION = 0.25
+
 export(float) var power = 600
 export(int, "Vertical", "Horizontal") var type
 export(NodePath) var spring_audio_path
@@ -20,7 +22,7 @@ func apply_vertical_force(player: Player, direction: int):
 	activate()
 
 func apply_horizontal_force(player: Player, direction: int):
-	player.lock_controls()
+	player.lock_controls(CONTROL_LOCK_DURATION)
 	player.skin.handle_flip(direction)
 	player.velocity.x = power * direction
 	activate()
