@@ -255,10 +255,9 @@ func unlock_controls():
 func handle_control_lock(delta: float):
 	if is_control_locked:
 		input_direction.x = 0
-		if __is_grounded:
-			control_lock_timer -= delta
-			if abs(velocity.x) == 0 or control_lock_timer <= 0:
-				unlock_controls()
+		control_lock_timer -= delta
+		if abs(velocity.x) == 0 or control_lock_timer <= 0:
+			unlock_controls()
 
 func handle_fall():
 	if __is_grounded and absolute_ground_angle > current_stats.slide_angle and abs(velocity.x) <= current_stats.min_speed_to_fall:

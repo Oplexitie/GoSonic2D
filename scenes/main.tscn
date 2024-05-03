@@ -668,6 +668,9 @@ monitor_ressoure = ExtResource( 18 )
 [node name="Icon" parent="Monitor" index="0"]
 frame = 0
 
+[node name="Sprite" parent="Monitor" index="1"]
+frame = 1
+
 [node name="Monitor2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 984, 624 )
 __meta__ = {
@@ -677,6 +680,9 @@ monitor_ressoure = ExtResource( 17 )
 
 [node name="Icon" parent="Monitor2" index="0"]
 frame = 7
+
+[node name="Sprite" parent="Monitor2" index="1"]
+frame = 1
 
 [node name="AnimationPlayer" parent="Monitor2/Sprite" index="0"]
 anims/destroyed = SubResource( 2 )
