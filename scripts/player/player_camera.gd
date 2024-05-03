@@ -47,10 +47,10 @@ func handle_vertical_borders(delta: float):
 	var target = player.get_position().y
 	
 	if player.is_grounded():
-		var offset = target - position.y
-		var is_at_high_velocity = abs(player.velocity.x) >= high_velocity_xsp
+		var is_at_high_velocity = abs(player.velocity.x) >= high_velocity_speed
 		var speed = low_velocity_speed if is_at_high_velocity else high_velocity_speed
-		position.y += clamp(offset, -speed * delta, speed * delta)
+		var lerp_target = lerp(position.y, target, (speed/60) * delta)
+		position.y = lerp_target
 	else:
 		if target < position.y + top_margin :
 			var offset = target - position.y - top_margin
