@@ -25,5 +25,5 @@ export(float) var max_jump_height = 390
 export(float) var min_jump_height = 240
 
 export(float) var slide_angle = 45
-export(float) var fall_angle = 80
+export(float) var fall_angle = 90
 export(float) var min_speed_to_fall = 150
