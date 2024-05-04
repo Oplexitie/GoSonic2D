@@ -235,7 +235,8 @@ func rotate_to(angle: float):
 func handle_input():
 	var horizontal = Input.get_axis("player_left", "player_right")
 	var vertical = Input.get_axis("player_down", "player_up")
-	horizontal = 0 if is_control_locked else horizontal
+	if __is_grounded:
+		horizontal = 0 if is_control_locked else horizontal
 	input_direction = Vector2(horizontal, vertical)
 	input_dot_velocity = input_direction.dot(velocity)
 
@@ -252,7 +253,6 @@ func unlock_controls():
 
 func handle_control_lock(delta: float):
 	if is_control_locked:
-		input_direction.x = 0
 		control_lock_timer -= delta
 		if abs(velocity.x) == 0 or control_lock_timer <= 0:
 			unlock_controls()
