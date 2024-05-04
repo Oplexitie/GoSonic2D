@@ -138,11 +138,9 @@ func handle_skin(delta):
 	if not is_rolling and abs(velocity.x) > 0:
 		if not __is_grounded:
 			var current_rotation = skin.rotation_degrees
-			skin.rotation_degrees = move_toward(current_rotation, 0, 360 * delta)
+			skin.rotation_degrees = move_toward(current_rotation, 0, 180 * delta)
 		else:
 			skin.rotation_degrees = ground_angle if abs(ground_angle) > 10 else .0
-	else:
-		skin.rotation_degrees = 0
 
 func handle_wall_collision():
 	var ray_size = current_bounds.width_radius + current_bounds.push_radius
