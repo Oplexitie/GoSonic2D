@@ -30,6 +30,7 @@ func animate(player: Player, _delta: float):
 	
 	if absolute_speed >= 0.3:
 		player.skin.set_running_animation_state(absolute_speed)
+	elif !abs(player.input_direction.x) and player.absolute_ground_angle < GoUtils.SHALLOW_ANGLE:
+		player.skin.set_animation_state(PlayerSkin.ANIMATION_STATES.idle)
 	else:
-		if abs(player.input_direction.x) == 0 and player.absolute_ground_angle < GoUtils.SHALLOW_ANGLE:
-			player.skin.set_animation_state(PlayerSkin.ANIMATION_STATES.idle)
+		player.skin.set_running_animation_state(absolute_speed)
