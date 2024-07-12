@@ -8,6 +8,7 @@ func enter(player: Player):
 func step(player: Player, delta: float):
 	player.handle_fall()
 	player.handle_jump()
+	player.handle_gravity(delta)
 	player.handle_deceleration(delta)
 	
 	if player.is_grounded():
@@ -16,7 +17,8 @@ func step(player: Player, delta: float):
 		elif player.input_direction.y < 0:
 			player.state_machine.change_state("Rolling")
 	else:
-		player.state_machine.change_state("Air")
+		if player.input_dot_velocity >= 0:
+			player.state_machine.change_state("Air")
 
 func animate(player: Player, _delta: float):
 	player.skin.set_animation_speed(1)
