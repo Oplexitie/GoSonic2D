@@ -88,7 +88,6 @@ func set_bounds(index: int):
 		current_bounds = bounds[index]
 		collider_shape.extents.x = current_bounds.width_radius + current_bounds.push_radius
 		collider_shape.extents.y = current_bounds.height_radius
-		position -= current_bounds.offset
 		
 		if last_bounds and last_bounds != current_bounds:
 			position += last_bounds.offset
